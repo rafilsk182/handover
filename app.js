@@ -195,10 +195,6 @@ const clients = [
     ],
     filters: ['execucao', 'risco'] },
 
-  { name: '99 Academy', tipo: 'Proposta', status: 'Em proposta', risk: 'A validar',
-    resp: null, frente: 'Landing / UX / Front-end', time: null,
-    proxima: 'Validar continuidade comercial.',
-    obs: 'Proposta em aberto.', filters: ['proposta'] },
 ];
 
 const iconStake = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="3.2"/><path d="M22 21v-2a4 4 0 0 0-3-3.85"/><path d="M16 3.15A4 4 0 0 1 16 11"/></svg>';
@@ -435,7 +431,6 @@ const matrix = [
   ['Cyrela Vivaz · Novo site',       'Projeto',     'Douglas Bortoliero / Mickael Riviere','Interface 100% aprovada. Fase de desenvolvimento em Drupal liderado por Mario Zuany.',  'Alto',      'Risco: sem PM dedicado e devs overalocados em 4 projetos. Stakeholder: Arielle Saboia.'],
   ['Carvalho Hosken · Novo site',    'Projeto',     'Douglas Bortoliero / Mickael Riviere','Etapa de design de interface liderada por Romario. Status semanal às sextas.',           'Médio',     'Risco: sem PM dedicado e time sobrecarregado. 2 vagas de dev pendentes. Stakeholders: Yone Beraldo, Amanda Cabral, Karen Jurassek.'],
   ['Blip · Novo site',               'Projeto',     'Douglas Bortoliero / Mickael Riviere','Cronograma reverso para deploy em 01/07. Figma disponível. Gestão política próxima.',   'Alto',      'Risco alto. Sem PM e time sobrecarregado. Stakeholders: Menedjan Morgado, Mariana Pessoa.'],
-  ['99 Academy',                     'Proposta',    null,                                   'Validar continuidade comercial.',                                                       'A validar', 'Proposta em aberto.'],
 ];
 
 function matrixRow(r) {
