@@ -390,6 +390,11 @@ body {
 .acc-item.open .acc-chevron { transform: rotate(180deg); background: var(--accent-soft); }
 .acc-chevron svg { width: 14px; height: 14px; stroke-width: 2.2; }
 
+#docsAccList .acc-head,
+#docsToolsList .acc-head {
+  grid-template-columns: 1fr 32px;
+}
+
 .acc-body { display: none; padding: 0 24px 22px; border-top: 1px solid var(--line); }
 .acc-item.open .acc-body { display: block; }
 .acc-body .ab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 28px; padding-top: 20px; }
