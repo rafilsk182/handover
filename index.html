@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Handover Rafael Oliveira — Acesso</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .card {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 16px;
+      padding: 48px 40px;
+      width: 100%;
+      max-width: 380px;
+      text-align: center;
+    }
+    h1 { color: #fff; font-size: 22px; font-weight: 600; margin-bottom: 8px; }
+    p { color: #666; font-size: 14px; margin-bottom: 32px; }
+    input[type=password] {
+      width: 100%;
+      padding: 14px 16px;
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 15px;
+      outline: none;
+      margin-bottom: 16px;
+      transition: border-color .2s;
+    }
+    input[type=password]:focus { border-color: #555; }
+    button {
+      width: 100%;
+      padding: 14px;
+      background: #fff;
+      color: #000;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: opacity .2s;
+    }
+    button:hover { opacity: .85; }
+    .error { color: #ff5555; font-size: 13px; margin-top: 12px; display: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Handover Rafael Oliveira</h1>
+    <p>Digite a senha para acessar</p>
+    <input type="password" id="pwd" placeholder="Senha" autofocus>
+    <button onclick="login()">Entrar</button>
+    <p class="error" id="err">Senha incorreta. Tente novamente.</p>
+  </div>
+  <script>
+    if (sessionStorage.getItem('hh_auth') === '1') {
+      window.location.replace('Handover Hub.html');
+    }
+
+    document.getElementById('pwd').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') login();
+    });
+
+    async function login() {
+      const val = document.getElementById('pwd').value;
+      const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(val));
+      const hex = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+      if (hex === 'cd8753dc642176ccf8551ba72d6b7fab3c979713eaa028277549498ddd02a789') {
+        sessionStorage.setItem('hh_auth', '1');
+        window.location.replace('Handover Hub.html');
+      } else {
+        document.getElementById('err').style.display = 'block';
+        document.getElementById('pwd').value = '';
+        document.getElementById('pwd').focus();
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Handover Hub — Base operacional de transição</title>
+<script>if(sessionStorage.getItem('hh_auth')!=='1'){window.location.replace('index.html');}</script>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="app">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="sidebar">
+    <div class="brand" style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:4px 8px 0;text-align:center;">
+      <div style="width:210px;height:210px;border-radius:16px;overflow:hidden;border:2px solid #e9e9ee;box-shadow:0 4px 16px rgba(16,17,20,.08);flex:0 0 auto;">
+        <img src="assets/profile.jpeg" alt="Foto de perfil" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      </div>
+      <div style="display:flex;flex-direction:column;line-height:1.1;align-items:center;">
+        <b style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;letter-spacing:-0.03em;color:#f5f5fa;">Rafael Oliveira</b>
+        <span style="font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:#8b8d96;margin-top:5px;">DIRETOR DE PRODUTOS DIGITAIS</span>
+      </div>
+    </div>
+
+    <div class="nav-label">Navegação</div>
+    <nav class="nav" id="nav">
+      <button class="nav-item active" data-page="home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg>
+        Home
+      </button>
+      <button class="nav-item" data-page="clientes">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg>
+        Clientes
+        <span class="count">10</span>
+      </button>
+      <button class="nav-item" data-page="time">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><path d="M16 5.2a3.2 3.2 0 0 1 0 5.6"/><path d="M17.5 14.4A5.5 5.5 0 0 1 20.5 20"/></svg>
+        Time
+        <span class="count">18</span>
+      </button>
+      <button class="nav-item" data-page="matriz">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M3 14.5h18"/><path d="M9 9v11"/></svg>
+        Matriz Geral
+      </button>
+      <button class="nav-item" data-page="docs">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        Documentação
+      </button>
+    </nav>
+
+    </aside>
+
+  <!-- ===================== MAIN ===================== -->
+  <main class="main">
+    <div class="topbar">
+      <div class="crumb">
+        <span>Handover Hub</span>
+        <span class="sep">/</span>
+        <span class="now" id="crumbNow">Home</span>
+      </div>
+      <div class="spacer"></div>
+      <span class="date">03 JUN 2026</span>
+    </div>
+
+    <!-- ============ HOME ============ -->
+    <section class="page" id="page-home">
+      <div class="page-head">
+        <div class="kicker">Dashboard executivo</div>
+        <h1>Handover para WPP Commerce</h1>
+        <p class="sub">Base operacional de transição das contas, projetos, responsáveis e próximos passos.</p>
+      </div>
+
+      <div class="kpi-grid" style="margin-top:34px;">
+        <div class="kpi">
+          <div class="tag"><span class="d" style="background:var(--slate)"></span><span>Mapeadas</span></div>
+          <div class="num">10</div>
+          <div class="lbl">Clientes / frentes mapeadas</div>
+        </div>
+        <div class="kpi">
+          <div class="tag"><span class="d" style="background:var(--green)"></span><span>Em execução</span></div>
+          <div class="num">4</div>
+          <div class="lbl">Projetos ativos</div>
+        </div>
+        <div class="kpi">
+          <div class="tag"><span class="d" style="background:var(--blue)"></span><span>Recorrente</span></div>
+          <div class="num">4</div>
+          <div class="lbl">Contas em sustentação</div>
+        </div>
+        <div class="kpi">
+          <div class="tag"><span class="d" style="background:var(--amber)"></span><span>Pipeline</span></div>
+          <div class="num">1</div>
+          <div class="lbl">Aguardando início</div>
+        </div>
+        <div class="kpi">
+          <div class="tag"><span class="d" style="background:var(--violet)"></span><span>Comercial</span></div>
+          <div class="num">1</div>
+          <div class="lbl">Propostas em aberto</div>
+        </div>
+        <div class="kpi is-alert">
+          <div class="tag"><span class="d" style="background:var(--red)"></span><span>Crítico</span></div>
+          <div class="num">3</div>
+          <div class="lbl">Projetos em risco alto</div>
+        </div>
+      </div>
+
+      <!-- Atenção imediata -->
+      <div class="section-head">
+        <h2>Atenção imediata</h2>
+        <span class="meta">PRIORIDADE MÁXIMA</span>
+        <span class="rule"></span>
+      </div>
+      <div class="alert-card">
+        <div class="stripe"></div>
+        <div class="inner">
+          <div class="top">
+            <span class="nm">Blip · Novo site</span>
+            <span class="badge green"><span class="bd"></span>Ativo em execução</span>
+            <span class="badge red"><span class="bd"></span>Risco alto</span>
+            <span class="badge type">Projeto · Tech · Produto</span>
+          </div>
+          <div class="alert-grid">
+            <div class="field">
+              <div class="k">NOVOS GESTORES RESPONSÁVEIS</div>
+              <div class="v">Douglas Bortoliero · Mickael Riviere</div>
+            </div>
+            <div class="field">
+              <div class="k">Frente principal</div>
+              <div class="v lead">Novo site / Redesign / Wordpress / Elementor</div>
+            </div>
+            <div class="field">
+              <div class="k">Próxima ação</div>
+              <div class="v lead">Estamos atuando em cronograma reverso para 01/07, time desfalcado e alocado em outros projetos.</div>
+            </div>
+          </div>
+          <div class="obs field">
+            <div class="k">Observação</div>
+            <div class="v">Projeto sensível, exige gestão próxima de cronograma, riscos, expectativas e comunicação. Acompanhamento político e operacional contínuo.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visão por status -->
+      <div class="section-head">
+        <h2>Visão por status</h2>
+        <span class="meta">10 FRENTES</span>
+        <span class="rule"></span>
+      </div>
+      <div class="status-cols">
+        <div class="scol s-green">
+          <div class="head">
+            <div class="ttl"><span class="d" style="background:var(--green)"></span>Ativo em execução</div>
+            <span class="ct">04</span>
+          </div>
+          <ul>
+            <li><span class="mk" style="background:var(--green)"></span>Blip</li>
+            <li><span class="mk" style="background:var(--green)"></span>Carvalho Hosken</li>
+            <li><span class="mk" style="background:var(--green)"></span>Cyrela Vivaz</li>
+            <li><span class="mk" style="background:var(--green)"></span>Texas Farm Bureau Insurance</li>
+          </ul>
+        </div>
+        <div class="scol s-blue">
+          <div class="head">
+            <div class="ttl"><span class="d" style="background:var(--blue)"></span>Sustentação</div>
+            <span class="ct">04</span>
+          </div>
+          <ul>
+            <li><span class="mk" style="background:var(--blue)"></span>Cyrela</li>
+            <li><span class="mk" style="background:var(--blue)"></span>Whirlpool</li>
+            <li><span class="mk" style="background:var(--blue)"></span>Youse</li>
+            <li><span class="mk" style="background:var(--blue)"></span>Potbelly</li>
+          </ul>
+        </div>
+        <div class="scol s-amber">
+          <div class="head">
+            <div class="ttl"><span class="d" style="background:var(--amber)"></span>Aguardando início</div>
+            <span class="ct">01</span>
+          </div>
+          <ul>
+            <li><span class="mk" style="background:var(--amber)"></span>Red Robin</li>
+          </ul>
+        </div>
+        <div class="scol s-violet">
+          <div class="head">
+            <div class="ttl"><span class="d" style="background:var(--violet)"></span>Proposta</div>
+            <span class="ct">01</span>
+          </div>
+          <ul>
+            <li><span class="mk" style="background:var(--violet)"></span>99 Academy</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============ CLIENTES ============ -->
+    <section class="page" id="page-clientes" hidden>
+      <div class="page-head">
+        <div class="kicker">Contas sob transição</div>
+        <h1>Clientes e Projetos</h1>
+        <p class="sub">Visão consolidada das contas sob transição, com status, responsáveis, time alocado e pontos de atenção.</p>
+      </div>
+
+      <div class="filters" id="filters">
+        <button class="chip active" data-filter="todos">Todos <span class="ct">10</span></button>
+        <button class="chip" data-filter="execucao">Ativo em execução <span class="ct">3</span></button>
+        <button class="chip" data-filter="sustentacao">Sustentação <span class="ct">4</span></button>
+        <button class="chip" data-filter="aguardando">Aguardando início <span class="ct">1</span></button>
+        <button class="chip" data-filter="proposta">Proposta <span class="ct">1</span></button>
+        <button class="chip" data-filter="risco">Risco alto <span class="ct">1</span></button>
+      </div>
+
+      <div class="client-list" id="clientGrid">
+        <!-- cards injected below -->
+      </div>
+    </section>
+
+    <!-- ============ TIME ============ -->
+    <section class="page" id="page-time" hidden>
+      <div class="page-head">
+        <div class="kicker">Pessoas e alocação</div>
+        <h1>Time sob minha gestão</h1>
+        <p class="sub">Mapa das pessoas envolvidas nas frentes de continuidade, com função, projetos relacionados e percentual de alocação.</p>
+      </div>
+      <div class="team-grid" id="teamGrid"></div>
+    </section>
+
+    <!-- ============ MATRIZ ============ -->
+    <section class="page" id="page-matriz" hidden>
+      <div class="page-head">
+        <div class="kicker">Consolidado operacional</div>
+        <h1>Matriz Geral de Projetos</h1>
+        <p class="sub">Tabela operacional consolidada com clientes, tipo de frente, novo responsável, próxima ação, risco e observações.</p>
+      </div>
+      <div class="table-wrap">
+        <table class="matrix">
+          <thead>
+            <tr>
+              <th>Cliente / Projeto</th>
+              <th>Tipo</th>
+              <th>Novo responsável WPP Commerce</th>
+              <th>Próxima ação</th>
+              <th>Risco</th>
+              <th>Observações</th>
+            </tr>
+          </thead>
+          <tbody id="matrixBody"></tbody>
+        </table>
+      </div>
+      <div class="foot-note">
+        <span>Campos marcados como</span><span class="ph">[ preencher ]</span><span>aguardam definição e devem ser atualizados ao longo da transição.</span>
+      </div>
+    </section>
+
+      <!-- ============ DOCS ============ -->
+    <section class="page" id="page-docs" hidden>
+      <div class="page-head">
+        <div class="kicker">Base de conhecimento</div>
+        <h1>Documentação</h1>
+        <p class="sub">Links e materiais de referência para a operação, transição e continuidade das contas.</p>
+      </div>
+      <div class="section-head"><h2>Sites e sistemas internos</h2><span class="rule"></span></div>
+      <div class="client-list" id="docsAccList" style="margin-bottom:32px;">
+        <div class="acc-item" id="doc-acc-jussi">
+          <div class="acc-head">
+            <div class="ah-name">
+              <span class="nm">jussi.com.br</span>
+              <span class="sub">Site institucional</span>
+            </div>
+            <div class="ah-meta"></div>
+            <div class="ah-meta"></div>
+            <div class="ah-badges"></div>
+            <span class="acc-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="acc-body">
+            <div class="ab-grid">
+              <div class="field">
+                <div class="k">GESTÃO</div>
+                <div class="v lead">A gestão do site da Jussi está com o Mario Zuany no AWS da Jussi.</div>
+              </div>
+              <div class="field">
+                <div class="k">FORMULÁRIOS DE CONTATO</div>
+                <div class="v lead">Para acessar os formulários que entram pelo módulo de contato do site:
+                  <a class="card-link" href="https://vs3437lc39.execute-api.us-east-1.amazonaws.com/default/sendMail?password=jussi-leads-2026" target="_blank" rel="noopener" style="margin-top:10px;display:inline-flex;align-items:center;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" style="width:14px;height:14px;margin-right:6px;flex-shrink:0;"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg>
+                    Acessar leads do formulário
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head">
+            <div class="ah-name">
+              <span class="nm">Administração Geral dos emails Google Jussi</span>
+              <span class="sub">Google Workspace</span>
+            </div>
+            <div class="ah-meta"></div>
+            <div class="ah-meta"></div>
+            <div class="ah-badges"></div>
+            <span class="acc-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="acc-body">
+            <div class="ab-grid">
+              <div class="field">
+                <div class="k">ADMINISTRADOR PRINCIPAL</div>
+                <div class="v lead">Marcos Del Valle<br>
+                  <a class="temail" href="mailto:marcos@jussi.com.br" style="margin-top:6px;display:inline-block;">marcos@jussi.com.br</a>
+                </div>
+              </div>
+              <div class="field">
+                <div class="k">PORTAL DE ADMINISTRAÇÃO</div>
+                <div class="v lead">
+                  <a class="card-link" href="https://admin.google.com/ac/accountsettings/profile?utm_source=app_launcher" target="_blank" rel="noopener" style="margin-top:4px;display:inline-flex;align-items:center;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" style="width:14px;height:14px;margin-right:6px;flex-shrink:0;"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg>
+                    Acessar Google Admin
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-head"><h2>Ferramentas</h2><span class="rule"></span></div>
+      <div class="client-list" id="docsToolsList" style="margin-bottom:32px;">
+        <div class="acc-item">
+          <div class="acc-head">
+            <div class="ah-name">
+              <span class="nm">Miro</span>
+              <span class="sub">Colaboração visual</span>
+            </div>
+            <div class="ah-meta"></div>
+            <div class="ah-meta"></div>
+            <div class="ah-badges"></div>
+            <span class="acc-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="acc-body">
+            <div class="ab-grid">
+              <div class="field">
+                <div class="k">E-MAIL ADMINISTRADOR</div>
+                <div class="v lead">
+                  <a class="temail" href="mailto:financeiro@jussi.com.br" style="display:inline-block;">financeiro@jussi.com.br</a>
+                </div>
+              </div>
+              <div class="field">
+                <div class="k">PERMISSÕES</div>
+                <div class="v lead">Controle de usuários e billing</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head">
+            <div class="ah-name">
+              <span class="nm">SEMrush</span>
+              <span class="sub">SEO &amp; Marketing</span>
+            </div>
+            <div class="ah-meta"></div>
+            <div class="ah-meta"></div>
+            <div class="ah-badges"></div>
+            <span class="acc-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="acc-body">
+            <div class="ab-grid">
+              <div class="field">
+                <div class="k">E-MAIL</div>
+                <div class="v lead">
+                  <a class="temail" href="mailto:seo.acessos@jussi.com.br" style="display:inline-block;">seo.acessos@jussi.com.br</a>
+                </div>
+              </div>
+              <div class="field">
+                <div class="k">SENHA</div>
+                <div class="v lead" style="font-family:var(--font-mono);letter-spacing:0.05em;">Seo@2026</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head">
+            <div class="ah-name">
+              <span class="nm">AppTweak</span>
+              <span class="sub">ASO &amp; App Intelligence</span>
+            </div>
+            <div class="ah-meta"></div>
+            <div class="ah-meta"></div>
+            <div class="ah-badges">
+              <span class="badge blue"><span class="bd"></span>Potbelly</span>
+              <span class="badge type">Vendida em contrato</span>
+            </div>
+            <span class="acc-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="acc-body">
+            <div class="ab-grid">
+              <div class="field">
+                <div class="k">CLIENTE</div>
+                <div class="v lead">Potbelly — ferramenta vendida em contrato</div>
+              </div>
+              <div class="field">
+                <div class="k">E-MAIL</div>
+                <div class="v lead">
+                  <a class="temail" href="mailto:potbelly.seotools@jussi.com.br" style="display:inline-block;">potbelly.seotools@jussi.com.br</a>
+                </div>
+              </div>
+              <div class="field">
+                <div class="k">SENHA</div>
+                <div class="v lead" style="font-family:var(--font-mono);letter-spacing:0.05em;">SEOJussi2024!</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head">
+            <div class="ah-name">
+              <span class="nm">Screaming Frog</span>
+              <span class="sub">SEO</span>
+            </div>
+            <div class="ah-meta"></div>
+            <div class="ah-meta"></div>
+            <div class="ah-badges"></div>
+            <span class="acc-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="acc-body">
+            <div class="ab-grid">
+              <div class="field">
+                <div class="k">USUÁRIO</div>
+                <div class="v lead" style="font-family:var(--font-mono);letter-spacing:0.05em;">seo2019</div>
+              </div>
+              <div class="field">
+                <div class="k">SENHA</div>
+                <div class="v lead" style="font-family:var(--font-mono);letter-spacing:0.05em;">Seojussi2019</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head">
+            <div class="ah-name">
+              <span class="nm">Buddy.works</span>
+              <span class="sub">CI/CD &amp; Deploy</span>
+            </div>
+            <div class="ah-meta"></div>
+            <div class="ah-meta"></div>
+            <div class="ah-badges"></div>
+            <span class="acc-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="acc-body">
+            <div class="ab-grid">
+              <div class="field full">
+                <div class="k">ACESSO</div>
+                <div class="v lead">Mario Zuany — <a class="temail" href="mailto:mario.zuany@jussi.com.br" style="display:inline;">mario.zuany@jussi.com.br</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head">
+            <div class="ah-name">
+              <span class="nm">AWS Jussi</span>
+              <span class="sub">Cloud Infrastructure</span>
+            </div>
+            <div class="ah-meta"></div>
+            <div class="ah-meta"></div>
+            <div class="ah-badges"></div>
+            <span class="acc-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="acc-body">
+            <div class="ab-grid">
+              <div class="field full">
+                <div class="k">ACESSO</div>
+                <div class="v lead">Mario Zuany — <a class="temail" href="mailto:mario.zuany@jussi.com.br" style="display:inline;">mario.zuany@jussi.com.br</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head">
+            <div class="ah-name">
+              <span class="nm">Bitbucket</span>
+              <span class="sub">Repositório de código</span>
+            </div>
+            <div class="ah-meta"></div>
+            <div class="ah-meta"></div>
+            <div class="ah-badges"></div>
+            <span class="acc-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="acc-body">
+            <div class="ab-grid">
+              <div class="field full">
+                <div class="k">ACESSO</div>
+                <div class="v lead">Mario Zuany — <a class="temail" href="mailto:mario.zuany@jussi.com.br" style="display:inline;">mario.zuany@jussi.com.br</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-head"><h2>Links importantes</h2><span class="rule"></span></div>
+      <div class="card" style="padding:8px;">
+        <div class="action-row action-row-2col">
+          <span class="idx">01</span>
+          <div><div class="ck">Documento</div><a class="card-link" href="https://904460af-c98c-4156-a7d8-f411d33a8865.claudeusercontent.com/v1/design/projects/904460af-c98c-4156-a7d8-f411d33a8865/serve/uploads/Novos%20gestores%20-%20IPD%20J%C3%BCssi.xlsx?t=d0e7472dbdd72bfd7b7713b0215a8631af87a5cc55091633d0e8e80821059837.ccc6e02a-0037-4035-b90c-afde2135a6f7.179d3700-16f3-4d0c-891f-793c3bf899e3.1780527859.fp&direct=1" target="_blank" rel="noopener" style="margin-top:4px;display:inline-flex;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" style="width:14px;height:14px;margin-right:6px;"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg> Novos gestores — IPD Jüssi.xlsx</a></div>
+          <div><div class="ck">Descrição</div><div class="v lead">Mapeamento de novos gestores IPD Jüssi para WPP Commerce</div></div>
+          </div>
+        <div class="action-row action-row-2col">
+          <span class="idx">02</span>
+          <div><div class="ck">Documento</div><a class="card-link" href="https://docs.google.com/spreadsheets/d/1WzCMW3T7CoRFsC67zHWJkdzmmSABt04kD4ikTnphC2E/edit?gid=1046062129#gid=1046062129" target="_blank" rel="noopener" style="margin-top:4px;display:inline-flex;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" style="width:14px;height:14px;margin-right:6px;"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg> Controle interno de faturamento Whirlpool — Jüssi</a></div>
+          <div><div class="ck">Descrição</div><div class="v lead">Controle interno de faturamento Whirlpool — Jüssi</div></div>
+        </div>
+        <div class="action-row action-row-2col">
+          <span class="idx">03</span>
+          <div><div class="ck">Documento</div><a class="card-link" href="https://docs.google.com/spreadsheets/d/1P5_ISv_azpzKm2O44WyDeuB-LhOD38kiWl5KU2Yjz_8/edit?gid=1326159355#gid=1326159355" target="_blank" rel="noopener" style="margin-top:4px;display:inline-flex;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" style="width:14px;height:14px;margin-right:6px;"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg> Planilha de fornecedores da Whirlpool</a></div>
+          <div><div class="ck">Descrição</div><div class="v lead">Planilha de fornecedores da Whirlpool</div></div>
+          </div>
+      </div>
+    </section>
+
+</main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
